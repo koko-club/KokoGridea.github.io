@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="https://koko-club.github.io/favicon.ico" type="image/x-icon" /><meta name="viewport"content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="apple-mobile-web-app-capable"content="yes"/><meta name="apple-mobile-web-app-status-bar-style"content="black"/><meta name="format-detection"content="telephone=no"/><meta name="renderer"content="webkit"><meta name="description"content="春风得意马蹄疾，一日看尽长安花"><meta charset="UTF-8"><title>ldap | Imcry</title>
+<link href="https://koko-club.github.io/styles/main.css" type="text/css" rel="stylesheet" /><link href="https://at.alicdn.com/t/font_1621793_zatzzgvf30g.css" type="text/css" rel="stylesheet" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css"><script async src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.min.js"></script><script src="https://koko-club.github.io/media/js/magnify.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"></script>
+<script type="text/javascript">function btn_toggle(){document.getElementById("hn").classList.contains("no-js")?document.getElementById("hn").classList.remove("no-js"):document.getElementById("hn").classList.add("no-js")}</script>
+
+<link rel="canonical" href="https://koko-club.github.io/post/ldap/" />
+</head>
+<body>
+<div class="progress"></div><style>.progress{background:linear-gradient(to right,#87ceeb var(--scroll),transparent 0);background-repeat:no-repeat;position:fixed;width:100%;height:4px;z-index:1}</style><div class="darkmode-background"></div><div class="darkmode-layer"></div>
+<noscript><p class="warn" >本页面需要浏览器支持（启用）JavaScript</p></noscript><div class="header"><div class="logo_title"><div class="title animated fadeInDown"><a href="https://koko-club.github.io"><img alt="logo" style="display:inline-block;" src="https://koko-club.github.io/images/avatar.png"/></a><h1 title="Imcry" class="weaklink"><a  href="/">Imcry</a></h1>
+
+<div class="navbar weaklink">
+<div class="normal_nav">
+<div class="bitcron_nav_container"><div class="bitcron_nav"><div class="bitcron_nav"><div style="display:flex;justify-content:center;"><nav class="mixed_site_nav_wrap site_nav_wrap"><ul class="mixed_site_nav site_nav sm sm-base">	<li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/" class="selected active current nav__item" >首页</a></li><li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/archives" class="selected active current nav__item" >归档</a></li><li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/tags" class="selected active current nav__item" >标签</a></li><li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/post/about" class="selected active current nav__item" >关于</a></li></ul></nav>
+<div style="float:right;margin-top:1em"><form id="gridea-search-form" data-update="1578893743252" action="/search/index.html"><input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="Search..."></form></div><div style="margin-left:0.5em;margin-top:1.2em"><input id="switch_default" onclick="mobileBtn()" type="checkbox" class="switch_default"><label for="switch_default" class="toggleBtn"></label></div></div>
+<div class="clear clear_nav_inline_end"></div></div></div><div class="clear clear_nav_end"></div></div></div><div class="hamberger" href="javascript:void(0)" onclick="btn_toggle();"><i class="iconfont icon-category"></i></div></div></div></div>
+<div id="hn" class="no-js hidden_nav animated fadeInDown"><div class="bitcron_nav_container"><div class="bitcron_nav"><nav class="mixed_site_nav_wrap site_nav_wrap"><ul class="mixed_site_nav site_nav sm sm-base">	<li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/" class="selected active current nav__item" >首页</a></li><li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/archives" class="selected active current nav__item" >归档</a></li><li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/tags" class="selected active current nav__item" >标签</a></li><li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/post/about" class="selected active current nav__item" >关于</a></li></ul><div class="clear clear_nav_inline_end"></div></nav></div><div class="clear clear_nav_end"></div></div>
+<div style="display:flex;justify-content:center;inline-block;text-align:center;margin-top:7%"><div><form id="gridea-search-form" data-update="1677484698183" action="/search/index.html"><input class="search-input" autocomplete="off" spellcheck="false" name="q"  placeholder="Search..." /></form></div><div style="margin-left:0.5em"><input id="switch_default_h" onclick="mobileBtn()" type="checkbox" class="switch_default"><label for="switch_default" class="toggleBtn"></label></div></div>
+</div></div>
+<script>function enableDarkmode(){document.body.classList.add("darkmode"),document.getElementById("switch_default").checked=1,document.getElementById("switch_default_h").checked=1}function removeDarkmode(){document.body.classList.remove("darkmode"),document.getElementById("switch_default").checked=0,document.getElementById("switch_default_h").checked=0}function getCookie(a){var b,c=new RegExp("(^| )"+a+"=([^;]*)(;|$)");return(b=document.cookie.match(c))?unescape(b[2]):null}cookie=getCookie("darkmode"),"enable"==cookie&&enableDarkmode(),window.matchMedia("(prefers-color-scheme: dark)").matches&&"disable"!==cookie&&(enableDarkmode(),document.cookie="darkmode=enable; path=/");var mobileBtn=function(){1==document.getElementById("switch_default").checked?(enableDarkmode(),document.cookie="darkmode=enable; path=/"):(removeDarkmode(),document.cookie="darkmode=disable; path=/")};</script>
+
+<div class="main"><div class="main-inner"><div class="content">
+<article class="post">
+<h2 class="post_title sm_margin"><a>ldap</a></h2>
+<script>function lan(){if(document.getElementById("lan").innerText=="繁"){var s=document.getElementById("tongwenlet_cn");if(s!=null){document.body.removeChild(s)}var s=document.createElement("script");s.language="javascript";s.type="text/javascript";s.src="https://cdn.jsdelivr.net/gh/qyxtim/Static@1.1/bookmarklet_tw.js";s.id="tongwenlet_cn";document.body.appendChild(s);document.getElementById("lan").innerHTML="简"}else{if(document.getElementById("lan").innerText=="簡"){var s=document.getElementById("tongwenlet_cn");if(s!=null){document.body.removeChild(s)}var s=document.createElement("script");s.language="javascript";s.type="text/javascript";s.src="https://cdn.jsdelivr.net/gh/qyxtim/Static@1.1/bookmarklet_cn.js";s.id="tongwenlet_cn";document.body.appendChild(s);document.getElementById("lan").innerHTML="繁"}}};</script>
+<section class="post_details"><i class="iconfont icon-calendar"></i><span style="margin-right:15px"> 2023-02-13</span><i class="iconfont icon-browse"></i><span style="margin-right:15px"> <span id="busuanzi_value_page_pv"></span> Views</span><i class="iconfont icon-category"></i><span class="weaklink" style="margin-right:15px"></span><i class="iconfont icon-caret-down"></i><span style="margin-right:15px">4896字</span><i class="iconfont icon-naozhong"></i><span style="margin-right:15px">20 min read</span><a id="lan" href="javascript:void(0);"onclick="lan();"title="调整简繁体" style="margin-right:15px;">繁</a>
+</section>
+
+<div style="display:flex">
+<div class="md_block" id="md_block">
+<div class="round-shape-one"></div>
+<h1 id="ldap">ldap</h1>
+<h2 id="什么是ldap">什么是ldap</h2>
+<pre><code>        首先LDAP是一种通讯协议，LDAP支持TCP/IP。协议就是标准，并且是抽象的。在这套标准下，AD（Active Directory）是微软出的一套实现。
+        那AD是什么呢？暂且把它理解成是个数据库。也有很多人直接把LDAP说成数据库(可以把LDAP理解成存储数据的数据库)。像是其他数据库一样，LDAP也是有client端和server端。server端是用来存放资源，client端用来操作增删改查等操作。
+        而我们通常说的LDAP是指运行这个数据库的服务器。
+        可以简单理解AD =LDAP服务器＋LDAP应用。
+</code></pre>
+<h2 id="用途">用途</h2>
+<pre><code>用于统一认证管理，统一公司内部服务账号密码。
+</code></pre>
+<h2 id="ldap-模型">LDAP 模型</h2>
+<h3 id="基本模型">基本模型</h3>
+<pre><code>目录树：在一个目录服务系统中，整个目录信息集可以表示为一个目录信息树，树中的每个节点是一个条目。
+条目：每个条目就是一条记录，每个条目有自己的唯一可区别的名称（DN）。
+对象类：是某个实体类型对应的一组属性，对象类可以继承，父类的必须属性也会被继承下来。
+属性：描述条目的某个方面的信息，一个属性由一个属性类型和一个或多个属性值组成，属性有必须属性和非必须属性。
+
+</code></pre>
+<table>
+<thead>
+<tr>
+<th><strong>关键字</strong></th>
+<th><strong>英文全称</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>dc</strong></td>
+<td>Domain Component</td>
+<td>域名的部分，其格式是将完整的域名分成几部分，如域名为example.com变成dc=example,dc=com（一条记录的所属位置）</td>
+</tr>
+<tr>
+<td><strong>uid</strong></td>
+<td>User Id</td>
+<td>用户ID songtao.xu（一条记录的ID）</td>
+</tr>
+<tr>
+<td><strong>ou</strong></td>
+<td>Organization Unit</td>
+<td>组织单位，组织单位可以包含其他各种对象（包括其他组织单元），如“oa组”（一条记录的所属组织）</td>
+</tr>
+<tr>
+<td><strong>cn</strong></td>
+<td>Common Name</td>
+<td>公共名称，如“Thomas Johansson”（一条记录的名称）</td>
+</tr>
+<tr>
+<td><strong>sn</strong></td>
+<td>Surname</td>
+<td>姓，如“许”</td>
+</tr>
+<tr>
+<td><strong>dn</strong></td>
+<td>Distinguished Name</td>
+<td>“uid=songtao.xu,ou=oa组,dc=example,dc=com”，一条记录的位置（唯一）</td>
+</tr>
+<tr>
+<td><strong>rdn</strong></td>
+<td>Relative dn</td>
+<td>相对辨别名，类似于文件系统中的相对路径，它是与目录树结构无关的部分，如“uid=tom”或“cn= Thomas Johansson”</td>
+</tr>
+</tbody>
+</table>
+<pre><code>dn ：一条记录的详细位置。目录位置
+dc ：一条记录所属区域 (哪一颗树)。根名称
+ou ：一条记录所属组织 （哪一个分支）。组名称
+cn/uid：一条记录的名字/ID (哪一个苹果名字)。用户名称
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://koko-club.github.io/post-images/ldap/ldap_tree.png" alt="img" loading="lazy"></figure>
+<h3 id="信息模型">信息模型</h3>
+<p>LDAP中，信息以树状方式进行组织的，在树状信息中的基本数据单元是条目，而每个条目由属性构成，属性中存储有属性值;</p>
+<h3 id="命名模型">命名模型</h3>
+<p>即LDAP中的条目定位方式，在LDAP中每个条目均有自己的DN。<br>
+DN是该条目在整个树中的唯一名称标识，</p>
+<p>如同文件系统中，带路径的文件名就是DN。</p>
+<h3 id="功能模型">功能模型</h3>
+<p>在LDAP中共有四类10种操作︰<br>
+查询类操作：如搜索、比较;<br>
+更新类操作：如添加条目、删除条目、修改条目、修改条目名;<br>
+认证类操作：如绑定、解绑定;<br>
+其它操作：如放弃和扩展操作。</p>
+<p>除了扩展操作，另外9种是LDAP的标准操作﹔</p>
+<p>扩展操作是LDAP中为了增加新的功能，提供的一种标准的扩展框架，当前已经成为LDAP标准的扩展操作，有修改密码和startTLS扩展，</p>
+<p>在新的RFC标准和草案中正在增加一些新的扩展操作，不同的LDAP厂商也均定义了自己的扩展操作。</p>
+<h3 id="安全模型">安全模型</h3>
+<p>安全模型主要通过身份认证、安全通道和访问控制来实现。</p>
+<h1 id="ldap-server">ldap server</h1>
+<p>一般ldap服务端比较常用的是openldap，这里仅记录openldap的部署及使用。</p>
+<h2 id="openldap">openldap</h2>
+<h3 id="k8s部署">k8s部署</h3>
+<p>直接用yaml部署就行，镜像用的是bitnami的ldap镜像</p>
+<pre><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openldap
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: openldap
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: openldap
+    spec:
+      containers:
+      - env:
+        - name: LDAP_ADMIN_USERNAME
+          value: admin
+        - name: LDAP_ADMIN_PASSWORD
+          value: &quot;123456&quot;
+        - name: LDAP_USERS
+          value: manager
+        - name: LDAP_PASSWORDS
+          value: &quot;123456&quot;
+        - name: LDAP_ROOT
+          value: dc=finsiot,dc=com
+        image: bitnami/openldap:latest
+        imagePullPolicy: Always
+        name: openldap
+        ports:
+        - containerPort: 1389
+          name: service
+          protocol: TCP
+        resources:
+          limits:
+            cpu: &quot;1&quot;
+            memory: 2Gi
+          requests:
+            cpu: &quot;1&quot;
+            memory: 2Gi
+        volumeMounts:
+        - mountPath: /bitnami/openldap/data
+          name: openldap-pvc
+          subPath: ldap
+        - mountPath: /bitnami/openldap/slapd.d
+          name: openldap-pvc
+          subPath: slapd.d
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: openldap-pvc
+        persistentVolumeClaim:
+          claimName: ldap-pvc
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ldap-pvc
+  labels:
+    app: ldap
+spec:
+  storageClassName: csi-rbd-sc   #这里的storageclass是我们之前申请的
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: openldap
+spec:
+  #clusterIP: 192.168.110.29
+  #externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 30300
+    port: 1389
+    protocol: TCP
+    targetPort: service
+  selector:
+    app: openldap
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
+</code></pre>
+<h3 id="ldap二进制部署">ldap二进制部署</h3>
+<p>这里没有尝试过二进制部署ldap，后面会写。</p>
+<h3 id="ldap管理">ldap管理</h3>
+<p>管理操作ldap数据可以使用ldap客户端或者ldap管理服务工具实现。如果使用ldap windows客户端可以下载LDAPSoft Ldap Browser使用，如果使用管理web页面可以部署服务：ldapphpadmin。</p>
+<h2 id="ldapphpadmin">ldapphpadmin</h2>
+<h3 id="k8s部署-2">k8s部署</h3>
+<pre><code>
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yml
+    kompose.version: 1.16.0 (0c01309)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: phpldapadmin
+  name: phpldapadmin
+spec:
+  replicas: 1
+  strategy: {}
+  selector:                #定义选择器
+    matchLabels:           #匹配上面的标签
+        io.kompose.service: phpldapadmin         #匹配模板名称
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: phpldapadmin
+    spec:
+      containers:
+      - env:
+        - name: PHPLDAPADMIN_HTTPS
+          value: &quot;false&quot;
+        - name: PHPLDAPADMIN_LDAP_HOSTS
+          value: 'ldap://192.168.110.29:30389'
+        image: osixia/phpldapadmin:0.7.1
+        name: phpldapadmin
+        ports:
+        - containerPort: 80
+        resources: {}
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:ZZ
+  labels:
+    io.kompose.service: phpldapadmin
+  name: phpldapadmin
+spec:
+  ports:
+  - name: &quot;8080&quot;
+    port: 8080
+    targetPort: 80
+  selector:
+    io.kompose.service: phpldapadmin
+</code></pre>
+<h1 id="ldap-for-nexus">ldap for nexus</h1>
+<p>本文主要为nexus集成到ldap的配置，由于网上关于该功能的配置大都层次不齐且写的太模糊，故记录此文档。</p>
+<h2 id="1-ldap配置">1、ldap配置</h2>
+<p>这里ldap用的是openldap，所以首先需要部署好openldap。首先想要在nexus中集成ldap，ldap的服务端必须要有组和用户。</p>
+<pre><code>这里的组用来映射与nexus的角色，使其组下面的用户都拥有nexus映射角色的权限，无需额外配置。
+这里的用户则用来登录nexus。
+</code></pre>
+<p>所以需要创建好组和用户，这里以映射一个nexus管理员为例子，首先创建准备好ldap的用户和组：</p>
+<pre><code>创建一个ou为nexus，组为manager，用户为nexus，先创建组，然后创建用户指定组。
+组:cn=manager,ou=nexus,dc=finsiot,dc=com
+用户:cn=nexus,ou=nexus,dc=finsiot,dc=com
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://koko-club.github.io/post-images/ldap/image-20221110171353237.png" alt="image-20221110171353237" loading="lazy"></figure>
+<h2 id="2-nexus配置">2、nexus配置</h2>
+<pre><code>	1.访问nexus-web管理页面，登录管理员账号，进入设置-》secruity-》LDAP-》create connection
+	2.connection配置：
+		name：这个是要创建的ldap名称，可以随便填，非关键性参数。
+		Ldap server address:填入ldap地址
+		Search base Dn:填入dn地址（dc的地址）
+		Authentication method: Simple Authentication
+		Username or DN: 填入登录用户名(一般用admin管理员登录)
+		password: 密码
+	3.User and group配置：
+		configuration template: 选择一个模板，非关键性参数，只是会预先给出下面一些参数的值。这里可以选posix with static groups
+		user relative dn(base dn):对应于用作用户条目基础的专有名称集合。此DN与前面的search base相关。例如，如果用户都包含在ou = nexus，dc=finsiot,dc=com中，前面登录时指定了dc=finsiot,dc=com的搜索库，则这里使用值ou = nexus。
+		User subtree： 如果基本DN下面的树可以包含用户条目，则值为true;如果所有用户都包含在指定的基本DN中，则为false。例如，如果所有用户都在ou = users，dc = sonatype，dc = com，则此字段应为False。如果用户可以在组织单位内的组织单位中显示，例如ou = development，ou = users，dc = sonatype，dc = com，则此字段应为True。
+		Object class： 此值是RFC-2798中定义的标准对象类。它为用户指定对象类。常见值为inetOrgPerson，person，user或posixAccount。这里使用模板默认的posixAccount
+		User filter： 这允许您配置过滤器以限制对用户记录的搜索。它可以用作性能改进。这里不用填写。
+		User ID attribute： 这是上面指定的对象类的属性，它从LDAP服务器提供用户的标识符。存储库管理器使用此属性作为用户ID值。在ldap创建了用户以后，里面有一个属性值（默认为uid），例如我这里创建了一个nexus的用户，则会有一个uid的值为nexus，nexus服务需要通过这个key:value来找到该用户
+		Real name attribute： 这是Object类的属性，它提供用户的真实姓名。存储库管理器在需要显示用户的真实姓名时使用此属性，类似于内部名字和姓氏属性的使用。这个也是去找ldap里面的kv属性，默认是key的名称为cn。
+		Email attribute: 同上面的User ID attribute和Real name attribute，默认key的名称为mail。
+		Password attribute:不用填写，这里为空则会在登录时读取ldap中用户的password字段。
+		Map LDAP groups as roles：这里需要勾选，下面是组的配置，用于将ldap组映射于nexus。
+		Group type: static Groups 这里选择静态组
+		Group relative DN: 指名组的DN位置，例如我这里manager组在nexus下面，则这里填ou=nexus。
+		Group subtree: 勾选，表示是位于group下面的子组。例如我上面ou=nexus，则这里勾选的意思是nexus下面的组。
+		Group object class: 组创建时会有这个字段，默认为posixGroup。和上面定义User ID attribute和Real name attribute和Email attribute是一样的。
+		Group ID attribute： 这里表示组的id属性，和上面定义User ID attribute和Real name attribute和Email attribute是一样的。
+		Group member attribute: 这里表示组里面有哪些成员，和上面两个属性一样，也是ldap组中的字段，但默认不会创建这个字段，请手动创建memberUid的字段并把成员的字段值写入该字段，否则会找不到映射的角色。
+		Group member format: 该字段用来找到memberUid中的组员名称的，使用变量${username}。
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="https://koko-club.github.io/post-images/ldap/image-20221110171338946.png" alt="image-20221110171338946" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://koko-club.github.io/post-images/ldap/image-20221110171215302.png" alt="image-20221110171215302" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://koko-club.github.io/post-images/ldap/image-20221110171237900.png" alt="image-20221110171237900" loading="lazy"></figure>
+<figure data-type="image" tabindex="6"><img src="https://koko-club.github.io/post-images/ldap/image-20221110171249864.png" alt="image-20221110171249864" loading="lazy"></figure>
+<h3 id="创建角色">创建角色</h3>
+<p>在nexus设置-》security-》roles中添加一个role，type为external role mapping，external role type为ldap。</p>
+<figure data-type="image" tabindex="7"><img src="https://koko-club.github.io/post-images/ldap/image-20221110171612944.png" alt="image-20221110171612944" loading="lazy"></figure>
+<pre><code>Mapped Role：请填写为ldap中创建的组名称，两个服务会通过名称进行映射，例如我这里ldap中有一个nexus用户，在manager组下面，于是这里我定义一个mapped role为manager，则nexus以及ldap中manager组中所有用户都会拥有这里定义好的权限，也就是组权限映射。
+Role Name： role角色的名称。
+Role Description： 角色介绍。
+Privileges：定义的是角色的权限。
+Roles：可以与其它定义好的role关联权限。
+</code></pre>
+<h3 id="测试">测试</h3>
+<p>创建好以后回到刚刚的ldap设置，点击刚刚创建的ldap，进入user and group设置，最下方有一个 verify user mapping 。</p>
+<figure data-type="image" tabindex="8"><img src="https://koko-club.github.io/post-images/ldap/image-20221110171936912.png" alt="image-20221110171936912" loading="lazy"></figure>
+<p>点击属于ldap密码就可以看到目前定义映射的组和用户情况</p>
+<figure data-type="image" tabindex="9"><img src="https://koko-club.github.io/post-images/ldap/image-20221110172056058.png" alt="image-20221110172056058" loading="lazy"></figure>
+<p>这里user id其实就是上面user id attribute配置，name为Real name attribute配置，email为Email attribute，roles是Map LDAP groups as roles及下面所有组配置定义的。如果有没有数据的字段，请检查该项对应配置的字段是否正常配置，例如如果roles没有，请看一下Map LDAP groups as roles下面的配置是否正确。</p>
+<h1 id="ldap-for-jenkins">ldap for jenkins</h1>
+<p>jenkins集成ldap的方法</p>
+<h2 id="1-安装插件">1、安装插件</h2>
+<figure data-type="image" tabindex="10"><img src="https://koko-club.github.io/post-images/ldap/cb436a8c487d4df0b47bfea2f494bf77.png" alt="Jenkins安装LDAP插件" loading="lazy"></figure>
+<h2 id="2-配置ldap">2、配置ldap</h2>
+<p>进入管理设置（manage jenkins）-&gt;全局安全设置(configure global security),设置安全域为ldap</p>
+<figure data-type="image" tabindex="11"><img src="https://koko-club.github.io/post-images/ldap/image-20230210101753775.png" alt="image-20230210101753775" loading="lazy"></figure>
+<h3 id="配置项">配置项</h3>
+<pre><code>Server：ldap的地址url
+root DN：根DN目录路径
+User search base：查找用户的目录
+User search filter：查找用户的条件
+Group search base： 查找用户组的目录
+Group search filter： 用户组条件(查找用户的条件)
+Group membership：选择 Search for LDAP groups containing user
+Manager DN： 管理员所在路径
+Manager Password： 管理员密码
+Display Name LDAP attribute： jenkins对应ldap用户名的字段
+Email Address LDAP attribute：email字段
+</code></pre>
+<p>配置示例：</p>
+<figure data-type="image" tabindex="12"><img src="https://koko-club.github.io/post-images/ldap/image-20230210102814010.png" alt="image-20230210102814010" loading="lazy"></figure>
+<p>这里ldap的结构为，用户目录：ou=people,dc=xxx,dc=com，用户组目录：ou=group,dc=xxx,dc=com</p>
+<figure data-type="image" tabindex="13"><img src="https://koko-club.github.io/post-images/ldap/image-20230210103422255.png" alt="image-20230210103422255" loading="lazy"></figure>
+<figure data-type="image" tabindex="14"><img src="https://koko-club.github.io/post-images/ldap/image-20230210103437606.png" alt="image-20230210103437606" loading="lazy"></figure>
+<p>这里需要注意的点是：user search filter用于找到用户，如果这里填错了将会找不到用户。group search base则是用于找到用户组，如果这里填错了将找不到用户，而search filter用于找到用户组中的用户(&amp;(objectClass=posixGroup)(memberUid={1}))，这里的用户组主要用于授权时使用，对组进行授权。</p>
+<h2 id="测试-2">测试</h2>
+<p>配置完成可以点击test ldap settings测试一下：</p>
+<figure data-type="image" tabindex="15"><img src="https://koko-club.github.io/post-images/ldap/image-20230210104457142.png" alt="image-20230210104457142" loading="lazy"></figure>
+<figure data-type="image" tabindex="16"><img src="https://koko-club.github.io/post-images/ldap/image-20230210104515248.png" alt="image-20230210104515248" loading="lazy"></figure>
+<h1 id="ldap-for-gitlab">ldap for gitlab</h1>
+<p>gitlab并不能直接通知页面设置来对接ldap，而是通过配置文件。</p>
+<h2 id="1-ldap配置二进制部署">1、ldap配置（二进制部署）</h2>
+<p>这里配置分为两种：一种是二进制包部署的gitlab，这个由于我并没有部署过，所以下面的配置摘抄于网上，不清楚版本有没有配置变化，但配置大致的字段基本应该是一致的；还有一种方法是k8s的配置，这种也是目前我在使用的方式，会在下面列出来。</p>
+<pre><code>如果是二进制部署的则直接更改配置文件
+vi /etc/gitlab/gitlab.rb
+
+gitlab_rails['ldap_enabled'] = true
+gitlab_rails['prevent_ldap_sign_in'] = false
+gitlab_rails['ldap_servers'] = {
+'main' =&gt; {
+  'label' =&gt; 'LDAP', # 随便自定义
+  'host' =&gt;  '10.0.20.19', # ldap的server地址
+  'port' =&gt; 389, # ldap端口
+  'uid' =&gt; 'cn', # 配置为cn或者sn都可以，但要注意用户名称将会以此处配置为依据
+  'bind_dn' =&gt; 'cn=admin,dc=aihelp,dc=net', # 管理员账号
+  'password' =&gt; '123456', # 管理员密码
+  'encryption' =&gt; 'plain',  # 加密
+  'allow_username_or_email_login' =&gt; false,  # 是否启用邮件作为用户名登陆
+  'block_auto_created_users' =&gt; false, 
+  'base' =&gt; 'dc=aihelp,dc=net',   # 核心配置，表示从哪一层读取用户信息
+  'user_filter' =&gt; '(memberof=cn=jenkins,ou=group,dc=aihelp,dc=net)', # LDAP用户进行过滤
+  'lowercase_usernames' =&gt; false,
+  'group_base' =&gt; '',
+  'admin_group' =&gt; '',
+  'external_groups' =&gt; [],
+  'sync_ssh_keys' =&gt; false
+  }
+}
+
+
+</code></pre>
+<pre><code>其中：
+label 是显示在GitLab登录框的上方文字描述。
+host 和 port 是 LDAP 服务的主机地址及端口
+bind_dn 和 password 是一个管理 LDAP 的 dn 及密码
+base 表示 LDAP 将以该 dn 为 节点，向下查找用户
+user_filter 表示以某种过滤条件筛选用户，比如假设我们只希望所属组为 java-platform 的用户来访问 GitLab，则可以在这里设置 (memberOf=ou=java-platform,ou=people,dc=domain,dc=com)
+
+配置添加之后，依旧像安装时候那样，重载一下配置：
+gitlab-ctl reconfigure
+
+ 
+Checking LDAP ...
+LDAP: ... Server: ldapmain
+LDAP authentication... Success
+LDAP users with access to your GitLab server (only showing the first 100 results)
+    DN: uid=test01,ou=people,dc=eryajf,dc=net    cn: ceshi
+    DN: uid=test02,ou=people,dc=eryajf,dc=net    cn: test02
+    DN: uid=test03,ou=people,dc=eryajf,dc=net    cn: test03
+    DN: uid=admin,ou=people,dc=eryajf,dc=net     cn: Admin
+Checking LDAP ... Finished
+使用ldap用户名密码进行登陆即可，此时登陆进去是没有任何项目的权限，如果需要某权限，可以对用户进行组或者单项目的授权。
+</code></pre>
+<h2 id="2-ldap配置k8s">2、ldap配置(k8s)</h2>
+<p>ldap这里直接用helm的values.yaml传递配置文件信息，所以在ldap中配置就行了。这里如果是部署也建议采用helm部署，由于gitlab新版本模块过多，如果写yaml文件的话再加上配置文件和需要持久化的存储路径很麻烦，所以使用helm是比较理想的方式。</p>
+<pre><code>values.yaml:
+----
+    ldap:
+      # prevent the use of LDAP for sign-in via web.
+      preventSignin: false
+      servers:
+        main:
+          label: 'LDAP' 
+          host: '192.168.110.29' #ldap地址
+          port: 30389 #端口
+          uid: 'uid' 
+          bind_dn: 'cn=admin,dc=finsiot,dc=com' #管理员路径
+          password: #管理员密码
+            secret: my-ldap-password-secret
+            key: the-key-containing-the-password
+          encryption: 'plain'
+          base: 'ou=people,dc=finsiot,dc=com' #用户路径
+          verify_certificates: true #忽略证书
+          active_directory: false
+          allow_username_or_email_login: true #支持邮件和用户名登录
+          block_auto_created_users: false
+          user_filter: ''
+          attributes:
+            username: ['cn'] #用户名对应ldap字段
+            email:    ['mail','email'] #邮箱对应ldap字段
+            name:     'description' #用户显示名字对应ldap字段
+            fister_name: 'givenName' 
+            last_name:  'sn'
+</code></pre>
+<p>需要注意的是，gitlab-ce仅支持ldap的用户配置，不支持ldap用户组的配置，如果想要使用ldap用户组，需要使用gitlab-ee（商业版本）。</p>
+<p>ldap的配置文件是configmap：gitlab-webservice下面的gitlab.yml.erb，挂载于gitlab-webservice-default的/var/opt/gitlab/templates/gitlab.yml.erb路径。</p>
+<h3 id="gitlab拉取ldap账号数据">gitlab拉取ldap账号数据</h3>
+<h4 id="问题">问题</h4>
+<p>ldap与应用结合一般有两种，一种是服务需要登录时去调用ldap的账号数据实现结合，还有一种是服务预先将ldap存在自己数据库中然后通过ldap的账号进行登录。而gitlab则是后者，这种情况会导致新加了账号但是ldap却没办法直接用新账号登录，因为gitlab并非是登录直接去ldap调用，而是从自己数据库中找ldap账号数据。</p>
+<h4 id="解决办法">解决办法</h4>
+<h5 id="1-定时">1、定时</h5>
+<p>​		可以在gitlab中设置每日定时任务，定时从ldap中拉取数据到自己的数据库。</p>
+<pre><code>K8S:
+	这里k8s是在helm的部署文件values.yaml添加修改：
+	cron_jobs:
+	   ldap_sync_worker:
+         cron: &quot;30 1 * * *&quot;
+       ldap_group_sync_worker:
+         cron: &quot;0 * * * *&quot;
+二进制部署：
+	请查看官方文档：https://docs.gitlab.cn/jh/administration/auth/ldap/ldap_synchronization.html
+
+</code></pre>
+<h5 id="2-手动拉取">2、手动拉取</h5>
+<pre><code>手动拉取使用gitlab-rake gitlab:ldap:check命令就可以，这个是测试ladp的命令，测试的同时会拉取一遍数据。
+如果是k8s需要在gitlab-toolbox容器中执行该命令
+</code></pre>
+<h1 id="mindoc-for-ldap">mindoc for ldap</h1>
+<p>mindoc是一款开源wiki服务，由于比较冷门，后面可能几乎用不到，这里就简略记录一下，直接贴上配置文件</p>
+<pre><code>app.conf #mindoc配置文件
+     #是否启用ldap
+    ldap_enable=true
+    #ldap主机名
+    ldap_host=192.168.110.29
+    #ldap端口
+    ldap_port=30389
+    #ldap内哪个属性作为用户名
+    ldap_attribute=uid
+    #搜索范围
+    ldap_base=dc=finsiot,dc=com
+    #第一次绑定ldap用户dn
+    ldap_user=cn=admin,dc=finsiot,dc=com
+    #第一次绑定ldap用户密码
+    ldap_password=123456
+    #自动注册用户角色：0 超级管理员 /1 管理员/ 2 普通用户
+    ldap_user_role=2
+    #ldap搜索filter规则,AD服务器: objectClass=User, openldap服务器: objectClass=posixAccount ,也可以定义为其他属性,如: title=mindoc
+    ldap_filter=objectClass=posixAccount
+
+</code></pre>
+<p>直接配置好重启应用就可以使用ldap账号登录了。</p>
+<h1 id="zentao-for-ldap">zentao for ldap</h1>
+<p>禅道服务接入ldap</p>
+<h2 id="ldap插件部署">ldap插件部署</h2>
+<p>禅道本身不支持ldap，需要额外安装ldap插件。插件地址：https://github.com/yihoyoung/zentao-ldap</p>
+<p><strong>需要注意的是目前这个版本最高仅支持禅道12，本人测试在禅道18版本上面不兼容。</strong></p>
+<p>其安装步骤在github的readme中有说明：</p>
+<pre><code>1.打包 ldap 文件夹为 ldap.zip 文件
+2.创建文件：
+touch /www/zentaopms/www/ok.txt
+3.admin 账户登陆禅道，后台 -&gt; 插件 -&gt; 本地安装，选择打包的 ldap.zip 文件安装即可
+</code></pre>
+<h3 id="具体步骤">具体步骤</h3>
+<p>下载ldap代码，将这个文件打包成zip。</p>
+<figure data-type="image" tabindex="17"><img src="https://koko-club.github.io/post-images/ldap/image-20230213152207304.png" alt="image-20230213152207304" loading="lazy"></figure>
+<p>在服务器上面创建该文件：touch /www/zentaopms/www/ok.txt</p>
+<p>然后登录禅道管理员账号，部署插件如下：</p>
+<figure data-type="image" tabindex="18"><img src="https://koko-club.github.io/post-images/ldap/image-20230213152502090.png" alt="image-20230213152502090" loading="lazy"></figure>
+<p>安装文件时提示版本不兼容点击强制安装即可。</p>
+<figure data-type="image" tabindex="19"><img src="https://koko-club.github.io/post-images/ldap/image-20230213152747071.png" alt="image-20230213152747071" loading="lazy"></figure>
+<p>安装成功以后后台会有ldap配置项：</p>
+<figure data-type="image" tabindex="20"><img src="https://koko-club.github.io/post-images/ldap/image-20230213140948096.png" alt="image-20230213140948096" loading="lazy"></figure>
+<h2 id="ldap配置说明">ldap配置说明</h2>
+<pre><code>LDAP服务器: ldap地址
+协议版本： 默认填写3
+BindDN： 管理账号地址
+BindDN 密码:	管理账户密码
+BaseDN: 用户地址
+Search filter: 搜索用户的条件，openldap这个服务默认是objectClass=posixAccount，不同的ldap服务不一样
+账号字段: 登录用户名字段
+EMail 字段: 邮箱字段
+姓名字段: 名字字段
+</code></pre>
+<p>ldap配置完以后先点击保存配置，然后点击手动同步，如果有同步的用户信息那就表示没问题了。</p>
+<figure data-type="image" tabindex="21"><img src="https://koko-club.github.io/post-images/ldap/image-20230213153228070.png" alt="image-20230213153228070" loading="lazy"></figure>
+<p>最后在组织-》用户中查看已经通过ldap导入的用户信息。</p>
+<p>注意：配置了ldap以后系统原账号登录需要在用户名前面加上“<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">”</mi><mi mathvariant="normal">符</mi><mi mathvariant="normal">号</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">例</mi><mi mathvariant="normal">如</mi></mrow><annotation encoding="application/x-tex">”符号，例如</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">”</span><span class="mord cjk_fallback">符</span><span class="mord cjk_fallback">号</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">例</span><span class="mord cjk_fallback">如</span></span></span></span>admin。</p>
+
+<span id="footnote"></span>
+<div id = "warn"></div>
+</div>
+<div class="toc-container"><ul class="markdownIt-TOC">
+<li><a href="#ldap">ldap</a>
+<ul>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AFldap">什么是ldap</a></li>
+<li><a href="#%E7%94%A8%E9%80%94">用途</a></li>
+<li><a href="#ldap-%E6%A8%A1%E5%9E%8B">LDAP 模型</a>
+<ul>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E6%A8%A1%E5%9E%8B">基本模型</a></li>
+<li><a href="#%E4%BF%A1%E6%81%AF%E6%A8%A1%E5%9E%8B">信息模型</a></li>
+<li><a href="#%E5%91%BD%E5%90%8D%E6%A8%A1%E5%9E%8B">命名模型</a></li>
+<li><a href="#%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9E%8B">功能模型</a></li>
+<li><a href="#%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B">安全模型</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#ldap-server">ldap server</a>
+<ul>
+<li><a href="#openldap">openldap</a>
+<ul>
+<li><a href="#k8s%E9%83%A8%E7%BD%B2">k8s部署</a></li>
+<li><a href="#ldap%E4%BA%8C%E8%BF%9B%E5%88%B6%E9%83%A8%E7%BD%B2">ldap二进制部署</a></li>
+<li><a href="#ldap%E7%AE%A1%E7%90%86">ldap管理</a></li>
+</ul>
+</li>
+<li><a href="#ldapphpadmin">ldapphpadmin</a>
+<ul>
+<li><a href="#k8s%E9%83%A8%E7%BD%B2-2">k8s部署</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#ldap-for-nexus">ldap for nexus</a>
+<ul>
+<li><a href="#1-ldap%E9%85%8D%E7%BD%AE">1、ldap配置</a></li>
+<li><a href="#2-nexus%E9%85%8D%E7%BD%AE">2、nexus配置</a>
+<ul>
+<li><a href="#%E5%88%9B%E5%BB%BA%E8%A7%92%E8%89%B2">创建角色</a></li>
+<li><a href="#%E6%B5%8B%E8%AF%95">测试</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#ldap-for-jenkins">ldap for jenkins</a>
+<ul>
+<li><a href="#1-%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6">1、安装插件</a></li>
+<li><a href="#2-%E9%85%8D%E7%BD%AEldap">2、配置ldap</a>
+<ul>
+<li><a href="#%E9%85%8D%E7%BD%AE%E9%A1%B9">配置项</a></li>
+</ul>
+</li>
+<li><a href="#%E6%B5%8B%E8%AF%95-2">测试</a></li>
+</ul>
+</li>
+<li><a href="#ldap-for-gitlab">ldap for gitlab</a>
+<ul>
+<li><a href="#1-ldap%E9%85%8D%E7%BD%AE%E4%BA%8C%E8%BF%9B%E5%88%B6%E9%83%A8%E7%BD%B2">1、ldap配置（二进制部署）</a></li>
+<li><a href="#2-ldap%E9%85%8D%E7%BD%AEk8s">2、ldap配置(k8s)</a>
+<ul>
+<li><a href="#gitlab%E6%8B%89%E5%8F%96ldap%E8%B4%A6%E5%8F%B7%E6%95%B0%E6%8D%AE">gitlab拉取ldap账号数据</a>
+<ul>
+<li><a href="#%E9%97%AE%E9%A2%98">问题</a></li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95">解决办法</a>
+<ul>
+<li><a href="#1-%E5%AE%9A%E6%97%B6">1、定时</a></li>
+<li><a href="#2-%E6%89%8B%E5%8A%A8%E6%8B%89%E5%8F%96">2、手动拉取</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#mindoc-for-ldap">mindoc for ldap</a></li>
+<li><a href="#zentao-for-ldap">zentao for ldap</a>
+<ul>
+<li><a href="#ldap%E6%8F%92%E4%BB%B6%E9%83%A8%E7%BD%B2">ldap插件部署</a>
+<ul>
+<li><a href="#%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4">具体步骤</a></li>
+</ul>
+</li>
+<li><a href="#ldap%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E">ldap配置说明</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="fullPage"><canvas id="canvas"></canvas></div>
+</article>
+<div id="eof"><span>EOF</span></div><div class="round-shape-one"></div>
+<section>
+<div class="doc_comments">
+
+</div></section>
+</div></div></div><script>
+"use strict";!function(){for(var n=document.getElementsByTagName("pre"),e=n.length,s=0;s<e;s++){n[s].innerHTML='<span class="line-number"></span>'+n[s].innerHTML+'<span class="cl"></span>';for(var a=n[s].innerHTML.split(/\n/).length,r=0;r<a-1;r++){n[s].getElementsByTagName("span")[0].innerHTML+="<span>"+(r+1)+"</span>"}}}();
+let mainNavLinks=document.querySelectorAll(".markdownIt-TOC a");window.addEventListener("scroll",event=>{let fromTop=window.scrollY;mainNavLinks.forEach((link,index)=>{let section=document.getElementById(decodeURI(link.hash).substring(1));let nextSection=null
+if(mainNavLinks[index+1]){nextSection=document.getElementById(decodeURI(mainNavLinks[index+1].hash).substring(1));}
+if(section.offsetTop<=fromTop){if(nextSection){if(nextSection.offsetTop>fromTop){link.classList.add("currentToc");}else{link.classList.remove("currentToc");}}else{link.classList.add("currentToc");}}else{link.classList.remove("currentToc");}});});
+var h=document.documentElement,b=document.body,st="scrollTop",sh="scrollHeight",progress=document.querySelector(".progress"),scroll;document.addEventListener("scroll",function(){scroll=(h[st]||b[st])/((h[sh]||b[sh])-h.clientHeight)*100;progress.style.setProperty("--scroll",scroll+"%")});
+var wxScale=new WxScale({fullPage:document.querySelector("#fullPage"),canvas:document.querySelector("#canvas")});var imgBox=document.querySelectorAll("#md_block img");for(var i=0;i<imgBox.length;i++){imgBox[i].onclick=function(e){wxScale.start(this)}};
+</script>
+<a id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647; display: block;"></a><div class="footer animated fadeInDown"><div class="site_footer"><div class="mysocials"><div class="my_socials"></div></div><div class="copyright"id="copyright">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>Copyright © 2018-2020 <a href="https://koko-club.github.io" style="margin:0;">Imcry</a>.</div>
+<span style="display: inline;margin-right:15px;">👁<strong><span id="busuanzi_value_site_uv"></span></strong></span><span id="busuanzi_container_page_pv" style="display: inline;"><span>📚<strong>5</strong> posts</span></div></div>
+<script>
+console.log("\n %c \u26a1Theme: Bitcron-pro Author's Blog:https://blog.blinkstar.cn  Writen By Serence  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;", );
+</script>
+<script src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.min.js" type="module" defer></script>
+<script type="text/javascript" async src="https://koko-club.github.io/media/js/prism.js"></script>
+</body>
+</html>

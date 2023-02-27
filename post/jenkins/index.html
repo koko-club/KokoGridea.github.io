@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="https://koko-club.github.io/favicon.ico" type="image/x-icon" /><meta name="viewport"content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="apple-mobile-web-app-capable"content="yes"/><meta name="apple-mobile-web-app-status-bar-style"content="black"/><meta name="format-detection"content="telephone=no"/><meta name="renderer"content="webkit"><meta name="description"content="春风得意马蹄疾，一日看尽长安花"><meta charset="UTF-8"><title>jenkins | Imcry</title>
+<link href="https://koko-club.github.io/styles/main.css" type="text/css" rel="stylesheet" /><link href="https://at.alicdn.com/t/font_1621793_zatzzgvf30g.css" type="text/css" rel="stylesheet" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css"><script async src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.min.js"></script><script src="https://koko-club.github.io/media/js/magnify.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"></script>
+<script type="text/javascript">function btn_toggle(){document.getElementById("hn").classList.contains("no-js")?document.getElementById("hn").classList.remove("no-js"):document.getElementById("hn").classList.add("no-js")}</script>
+
+<link rel="canonical" href="https://koko-club.github.io/post/jenkins/" />
+</head>
+<body>
+<div class="progress"></div><style>.progress{background:linear-gradient(to right,#87ceeb var(--scroll),transparent 0);background-repeat:no-repeat;position:fixed;width:100%;height:4px;z-index:1}</style><div class="darkmode-background"></div><div class="darkmode-layer"></div>
+<noscript><p class="warn" >本页面需要浏览器支持（启用）JavaScript</p></noscript><div class="header"><div class="logo_title"><div class="title animated fadeInDown"><a href="https://koko-club.github.io"><img alt="logo" style="display:inline-block;" src="https://koko-club.github.io/images/avatar.png"/></a><h1 title="Imcry" class="weaklink"><a  href="/">Imcry</a></h1>
+
+<div class="navbar weaklink">
+<div class="normal_nav">
+<div class="bitcron_nav_container"><div class="bitcron_nav"><div class="bitcron_nav"><div style="display:flex;justify-content:center;"><nav class="mixed_site_nav_wrap site_nav_wrap"><ul class="mixed_site_nav site_nav sm sm-base">	<li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/" class="selected active current nav__item" >首页</a></li><li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/archives" class="selected active current nav__item" >归档</a></li><li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/tags" class="selected active current nav__item" >标签</a></li><li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/post/about" class="selected active current nav__item" >关于</a></li></ul></nav>
+<div style="float:right;margin-top:1em"><form id="gridea-search-form" data-update="1578893743252" action="/search/index.html"><input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="Search..."></form></div><div style="margin-left:0.5em;margin-top:1.2em"><input id="switch_default" onclick="mobileBtn()" type="checkbox" class="switch_default"><label for="switch_default" class="toggleBtn"></label></div></div>
+<div class="clear clear_nav_inline_end"></div></div></div><div class="clear clear_nav_end"></div></div></div><div class="hamberger" href="javascript:void(0)" onclick="btn_toggle();"><i class="iconfont icon-category"></i></div></div></div></div>
+<div id="hn" class="no-js hidden_nav animated fadeInDown"><div class="bitcron_nav_container"><div class="bitcron_nav"><nav class="mixed_site_nav_wrap site_nav_wrap"><ul class="mixed_site_nav site_nav sm sm-base">	<li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/" class="selected active current nav__item" >首页</a></li><li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/archives" class="selected active current nav__item" >归档</a></li><li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/tags" class="selected active current nav__item" >标签</a></li><li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/post/about" class="selected active current nav__item" >关于</a></li></ul><div class="clear clear_nav_inline_end"></div></nav></div><div class="clear clear_nav_end"></div></div>
+<div style="display:flex;justify-content:center;inline-block;text-align:center;margin-top:7%"><div><form id="gridea-search-form" data-update="1677484698183" action="/search/index.html"><input class="search-input" autocomplete="off" spellcheck="false" name="q"  placeholder="Search..." /></form></div><div style="margin-left:0.5em"><input id="switch_default_h" onclick="mobileBtn()" type="checkbox" class="switch_default"><label for="switch_default" class="toggleBtn"></label></div></div>
+</div></div>
+<script>function enableDarkmode(){document.body.classList.add("darkmode"),document.getElementById("switch_default").checked=1,document.getElementById("switch_default_h").checked=1}function removeDarkmode(){document.body.classList.remove("darkmode"),document.getElementById("switch_default").checked=0,document.getElementById("switch_default_h").checked=0}function getCookie(a){var b,c=new RegExp("(^| )"+a+"=([^;]*)(;|$)");return(b=document.cookie.match(c))?unescape(b[2]):null}cookie=getCookie("darkmode"),"enable"==cookie&&enableDarkmode(),window.matchMedia("(prefers-color-scheme: dark)").matches&&"disable"!==cookie&&(enableDarkmode(),document.cookie="darkmode=enable; path=/");var mobileBtn=function(){1==document.getElementById("switch_default").checked?(enableDarkmode(),document.cookie="darkmode=enable; path=/"):(removeDarkmode(),document.cookie="darkmode=disable; path=/")};</script>
+
+<div class="main"><div class="main-inner"><div class="content">
+<article class="post">
+<h2 class="post_title sm_margin"><a>jenkins</a></h2>
+<script>function lan(){if(document.getElementById("lan").innerText=="繁"){var s=document.getElementById("tongwenlet_cn");if(s!=null){document.body.removeChild(s)}var s=document.createElement("script");s.language="javascript";s.type="text/javascript";s.src="https://cdn.jsdelivr.net/gh/qyxtim/Static@1.1/bookmarklet_tw.js";s.id="tongwenlet_cn";document.body.appendChild(s);document.getElementById("lan").innerHTML="简"}else{if(document.getElementById("lan").innerText=="簡"){var s=document.getElementById("tongwenlet_cn");if(s!=null){document.body.removeChild(s)}var s=document.createElement("script");s.language="javascript";s.type="text/javascript";s.src="https://cdn.jsdelivr.net/gh/qyxtim/Static@1.1/bookmarklet_cn.js";s.id="tongwenlet_cn";document.body.appendChild(s);document.getElementById("lan").innerHTML="繁"}}};</script>
+<section class="post_details"><i class="iconfont icon-calendar"></i><span style="margin-right:15px"> 2023-02-20</span><i class="iconfont icon-browse"></i><span style="margin-right:15px"> <span id="busuanzi_value_page_pv"></span> Views</span><i class="iconfont icon-category"></i><span class="weaklink" style="margin-right:15px"></span><i class="iconfont icon-caret-down"></i><span style="margin-right:15px">4172字</span><i class="iconfont icon-naozhong"></i><span style="margin-right:15px">17 min read</span><a id="lan" href="javascript:void(0);"onclick="lan();"title="调整简繁体" style="margin-right:15px;">繁</a>
+</section>
+
+<div style="display:flex">
+<div class="md_block" id="md_block">
+<div class="round-shape-one"></div>
+<h1 id="jenkins">jenkins</h1>
+<h2 id="介绍">介绍</h2>
+<p>Jenkins是一个开源的、提供友好操作界面的持续集成(CI)工具，起源于Hudson，主要用于持续、自动的构建/测试软件项目、监控外部任务的运行。Jenkins用Java语言编写，可在Tomcat等流行的servlet容器中运行，也可独立运行。通常与版本管理工具(SCM)、构建工具结合使用。常用的版本控制工具有SVN、GIT，构建工具有Maven、Ant、Gradle。</p>
+<p>jenkins官网：https://www.jenkins.io/</p>
+<h3 id="持续集成ci">持续集成CI</h3>
+<p>持续集成是一种软件开发实践，即团队开发成员经常集成他们的工作，通常每个成员每天至少集成一次，也就意味着每天可能会发生多次集成。每次集成都通过自动化的构建（包括<a href="https://baike.baidu.com/item/%E7%BC%96%E8%AF%91/1258343?fromModule=lemma_inlink">编译</a>，发布，自动化测试）来验证，从而尽早地发现集成错误。</p>
+<p>通俗来讲持续集成就是软件开发人员提交代码以后自动化构建、发布、测试。</p>
+<figure data-type="image" tabindex="1"><img src="https://koko-club.github.io/post-images/jenkins/webp.webp" alt="img" loading="lazy"></figure>
+<h3 id="持续交付cd">持续交付CD</h3>
+<p>CD(Continuous Delivery， 中文意思持续交付)是在持续集成的基础上，将集成后的代码部署到更贴近真实运行环境(类生产环境)中。比如，我们完成单元测试后，可以把代码部署到连接数据库的Staging环境中更多的测试。如果代码没有问题，可以继续手动部署到生产环境。下图反应的是CI/CD 的大概工作模式。</p>
+<figure data-type="image" tabindex="2"><img src="https:////upload-images.jianshu.io/upload_images/6464255-ba088ec7257062c0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img" loading="lazy"></figure>
+<h2 id="部署">部署</h2>
+<p>部署方式一般现在就分为二进制部署和docker(k8s)部署。</p>
+<p>官网下载：https://www.jenkins.io/download/</p>
+<h3 id="二进制包部署">二进制包部署</h3>
+<p>jenkins本身是基于java开发，其二进制包是war文件，运行于tomcat。</p>
+<p>1.部署tomcat</p>
+<p>2.下载jenkins的war部署包</p>
+<p>3.将包放于tomcat的webapps目录下，启动tomcat。默认8080端口访问。</p>
+<h3 id="k8sdocker部署">k8s(docker)部署</h3>
+<h4 id="docker部署">docker部署</h4>
+<p>dockeruhb官网镜像地址：https://hub.docker.com/r/jenkins/jenkins</p>
+<p>1.拉取镜像	docker pull jenkins/jenkins</p>
+<p>2.在本地创建Jenkins-home目录：mkdir -p /home/jenkins_home 用于映射</p>
+<p>3.启动Jenkins容器：docker run -d --name jenkins -p 8080:8080 -p 50000:50000 -v /home/jenkins_home:/var/jenkins_home jenkins/jenkins</p>
+<p>​	-p 50000:50000 ，<code>这个端口映射要保持一致</code>，否则agent无法启动，agent部分主要作用就是告诉Jenkins,选择哪台节点机器去执行Pipeline代码</p>
+<p>4、然后网站上输入IP:8080访问，需要输入密码，复制页面上的路径，在服务器上输入cat 路径查看密码，粘贴到输入框之后下一步就好</p>
+<p>​	cat / var/jenkins_home/secrets/initialadminpassword</p>
+<h4 id="k8s部署">k8s部署</h4>
+<p>k8s上面一般有两种部署方式，使用yaml文件部署和helm方式部署。</p>
+<h5 id="helm方式">helm方式</h5>
+<p>helm方式建议使用官方镜像，这里如果用的是bitnami的镜像则建议替换成官方，我这边使用发现bitnami的jenkins有些系统配置无法持久化。</p>
+<pre><code>helm repo add jenkins  https://charts.jenkins.io      
+helm pull jenkins  https://charts.jenkins.io    
+tar -xvf jenkins-VERSION.tar.gz
+cd jenkins
+vim values.yaml
+#根据需求更改配置
+重要的配置包括jenkins密码，svc类型，jenkins持久化存储配置（PVC）
+改完以后
+helm install jenkins . -n 要部署的名称空间
+</code></pre>
+<h5 id="yaml部署">yaml部署</h5>
+<p>jenkins.yaml:</p>
+<pre><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jks
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jks
+  template:
+    metadata:
+      labels:
+        app: jks
+    spec:
+      containers:
+      - name: jks
+        image: jenkins/jenkins:2.319.3-centos7-jdk8
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: jks-home
+          mountPath: /var/jenkins_home
+        - name: time-zone                            #容器内挂载点名称
+          mountPath: /etc/localtime              #容器内挂载点路径，可以是文件或目录
+      affinity: #这里由于jenkins镜像很大，避免删掉pod重构切换节点又要拉取数据，所以固定其节点。
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname # 标签键名
+                operator: In
+                values:
+                - node2 
+      initContainers:
+      - args:
+        - -c
+        - chmod 755 /var/jenkins_home &amp;&amp; chown 1000:1000 /var/jenkins_home   ### 这里将上一步所记录的权限属组进行更改
+        command:
+        - /bin/sh
+        image: centos
+        imagePullPolicy: IfNotPresent
+        name: chauth
+        securityContext:
+          privileged: true    ###  建议开启特权模式
+        volumeMounts:
+        - mountPath: /var/jenkins_home      ### initc也要对次数据卷进行挂载
+          name: jks-home
+      volumes:
+      - name: time-zone                              #数据卷名称，需要与容器内挂载点名称一致
+        hostPath:
+          path: /etc/localtime  
+      - name: jks-home
+        persistentVolumeClaim:
+            claimName: jks-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: jks-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 200Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jks
+spec:
+  selector:
+    app: jks
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 32089
+
+</code></pre>
+<p>kubectl apply -f jenkins.yaml</p>
+<p>部署完后访问jenkins:</p>
+<figure data-type="image" tabindex="3"><img src="https://koko-club.github.io/post-images/jenkins/image-20230215154224734.png" alt="image-20230215154224734" loading="lazy"></figure>
+<p>这里还是和上面一样，进入容器找到这个文件</p>
+<pre><code>[root@node1 jenkins_test]# kubectl exec -it jks-698b6564fb-5692t -n k3s-test bash 
+kubectl exec [POD] [COMMAND] is DEPRECATED and will be removed in a future version. Use kubectl exec [POD] -- [COMMAND] instead.
+Defaulted container &quot;jks&quot; out of: jks, chauth (init)
+bash-4.2$ cat /var/jenkins_home/secrets/initialAdminPassword
+54c0b40b20f34b4ca7b75840c68883a1
+然后填入管理员密码就ok
+安装的插件如果不知道可以先选择推荐安装的插件
+</code></pre>
+<h2 id="任务">任务</h2>
+<p>jenkins主要就是通过执行任务来工作的，左边菜单第一个按钮就是新建item</p>
+<figure data-type="image" tabindex="4"><img src="https://koko-club.github.io/post-images/jenkins/image-20230215164410954.png" alt="image-20230215164410954" loading="lazy"></figure>
+<p>主要使用的就是自由项目、流水线、多分支流水线，而从任务类型角度来讲主要就分为两种：流水线与非流水线</p>
+<h3 id="非流水线自由风格">非流水线（自由风格）</h3>
+<p>一般任务的步骤分为：推送代码-》触发钩子-》jenkins任务执行-》拉取代码-》构建操作-》构建后操作（一般是通知）</p>
+<h4 id="拉取代码">拉取代码</h4>
+<p>这里从拉取代码开始：</p>
+<p>首先在创建freestyle project前需要先下载<a href="https://plugins.jenkins.io/git-parameter">Git Parameter</a>模块，在系统管理—》插件管理—》可选插件中搜索git parameter，下载并重启jenkins。</p>
+<p>新建任务在源码管理中选择git，Repository URL输入git仓库地址，Credentials添加一个全局凭据用于git登录，指定分支中选择要拉取的分支。</p>
+<h4 id="构建触发器">构建触发器</h4>
+<p>构建触发器一般用于在代码仓库推送代码之后，触发触发器然后jenkins开始构建对应的任务。这个需要<a href="https://plugins.jenkins.io/generic-webhook-trigger">Generic Webhook Trigger</a>插件，安装完毕重启即可。</p>
+<h5 id="webhook触发jenkins任务配置">webhook触发jenkins任务配置</h5>
+<p>首先需要在jenkins任务中配置触发器</p>
+<figure data-type="image" tabindex="5"><img src="https://koko-club.github.io/post-images/jenkins/image-20230216111031873.png" alt="image-20230216111031873" loading="lazy"></figure>
+<p>例如这里的token设置的是test，则触发器url为：http://jenkins/generic-webhook-trigger/invok?token=test</p>
+<p>一般代码仓库如gitlab都会在具体项目里面有webhook配置，如下</p>
+<figure data-type="image" tabindex="6"><img src="https://koko-club.github.io/post-images/jenkins/image-20230216110814851.png" alt="image-20230216110814851" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://koko-club.github.io/post-images/jenkins/image-20230216110830102.png" alt="image-20230216110830102" loading="lazy"></figure>
+<p>首先将刚刚设置拿到的触发器url填入这个URL中，然后设置触发的动作，一般push events即可，表示其收到push操作时，则会触发。到这里webhook触发器就配置完成了，当gitlab推送代码时，jenkins会立即执行对应项目的任务。</p>
+<h4 id="构建环境">构建环境</h4>
+<p>构建环境主要构建前的一些操作，例如构建前删除工作区文件、使用密码文件或文本、如果卡住则终止构建等。这个配置不是必要配置，一般不用对构建环境做配置。</p>
+<figure data-type="image" tabindex="8"><img src="https://koko-club.github.io/post-images/jenkins/image-20230216112310634.png" alt="image-20230216112310634" loading="lazy"></figure>
+<h4 id="构建">构建</h4>
+<p>构建最常用的就是执行shell命名，拉取代码以后的编译-》打包推送docker镜像（如果不打包就是二进制部署）-》部署 操作都在这一步完成。</p>
+<figure data-type="image" tabindex="9"><img src="https://koko-club.github.io/post-images/jenkins/image-20230216112840235.png" alt="image-20230216112840235" loading="lazy"></figure>
+<p>​	<img src="https://koko-club.github.io/post-images/jenkins/image-20230216112904780.png" alt="image-20230216112904780" loading="lazy"></p>
+<p>直接在里面执行shell命令或者执行脚本就行了。</p>
+<h4 id="构建后操作">构建后操作</h4>
+<p>构建后常用配置是构建通知，一般常用的是email通知，jenkins默认支持email通知</p>
+<figure data-type="image" tabindex="10"><img src="https://koko-club.github.io/post-images/jenkins/image-20230216113950123.png" alt="image-20230216113950123" loading="lazy"></figure>
+<p>但现在比较流行用webhook进行通知，jenkins默认不支持这种配置，需要额外下载插件。</p>
+<h5 id="企业微信通知">企业微信通知</h5>
+<p>1、在需要发送企业微信通知的群中“添加群机器人”，得到webhook地址</p>
+<p>2、在Jenkins系统管理-插件管理-可选插件，搜索&quot;Qy Wechat Notification Plugin&quot;插件，下载并重启Jenkins</p>
+<p>3、配置系统配置</p>
+<p>​		输入webhook地址，点击保存</p>
+<figure data-type="image" tabindex="11"><img src="https://koko-club.github.io/post-images/jenkins/image-20230216131115946.png" alt="image-20230216130625028" loading="lazy"></figure>
+<p>填入webhook即可，其他几项非必填项。</p>
+<h5 id="钉钉通知">钉钉通知</h5>
+<p>1、打开钉钉，进入群设置-智能群助手-添加机器人-自定义机器人（填写机器人名称、安全设置、协议）得到webhook</p>
+<p>2、在Jenkins系统管理-插件管理-可选插件，搜索“DingTalk”，下载并重启Jenkins</p>
+<p>3、配置系统配置</p>
+<p>进入系统管理-系统配置-钉钉， 输入webhook地址、id、名称，主要是webhook地址以及钉钉那边机器人是否配置了关键字和加密，如果有需要输入<br>
+<img src="https://koko-club.github.io/post-images/jenkins/image-20230216132900385.png" alt="image-20230216132900385" loading="lazy"></p>
+<p>然后在任务配置中最上面就可以找到钉钉机器人</p>
+<figure data-type="image" tabindex="12"><img src="https://koko-club.github.io/post-images/jenkins/image-20230216133032694.png" alt="image-20230216133032694" loading="lazy"></figure>
+<p>如果不填写内容则为插件默认的告警模式，如需自定义需要看插件文档。</p>
+<h4 id="maven任务">maven任务</h4>
+<p>如果是java项目，可以使用maven风格来创建任务。首先需要按<a href="https://plugins.jenkins.io/maven-plugin">Maven Integration plugin</a>插件，安装后重启在创建任务时就可以看到选项</p>
+<figure data-type="image" tabindex="13"><img src="https://koko-club.github.io/post-images/jenkins/image-20230216133527267.png" alt="image-20230216133527267" loading="lazy"></figure>
+<p>maven风格项目主要是多了一个build选项，可以直接在配置中指定pom.xml进行maven打包，不像自由风格一样所有操作都需要通过shell来执行。这里需要安装maven工具，如果没有则会提示找不到工具，需要在全局工具配置中安装或指定工具目录。</p>
+<figure data-type="image" tabindex="14"><img src="https://koko-club.github.io/post-images/jenkins/image-20230216133703880.png" alt="image-20230216133703880" loading="lazy"></figure>
+<h3 id="流水线pipeline">流水线（pipeline）</h3>
+<p>流水线其实就是通过pipeline的方式来配置任务流程。</p>
+<h4 id="pipeline语法">pipeline语法</h4>
+<figure data-type="image" tabindex="15"><img src="https://koko-club.github.io/post-images/jenkins/image-20230217104233727.png" alt="image-20230217104233727" loading="lazy"></figure>
+<h5 id="pipeline示例">pipeline示例</h5>
+<h6 id="示例1">示例1</h6>
+<pre><code>pipeline {
+	agent any
+
+	stages{
+		stage('获取代码') {
+			steps {
+			
+	      checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '4dc04ffd-15bf-46e3-a942-2b58f37bc26b', url: 'git@gitlab.zhangxianwei.com:dev/java.git']]])
+			
+			}
+		}
+		
+		stage('代码检测'){
+			steps {
+				echo &quot;sonarqube check....&quot;
+			}
+		}		
+		stage('代码构建'){
+			steps {
+				echo &quot;maven build.....&quot;
+			}
+		}	
+		stage('代码部署'){
+			steps {
+			    echo &quot;echo sh&quot;
+			//	sh -x '/server/scripts/deploy_html_tag.sh'
+			}
+		}
+	}
+	
+}
+</code></pre>
+<h6 id="java项目构建pipeline示例">java项目构建pipeline示例</h6>
+<pre><code>pipeline {
+    agent {
+        label &quot;edge-node&quot; 
+    } 
+    options {
+    buildDiscarder(logRotator(numToKeepStr: '3'))
+    disableConcurrentBuilds()
+    }
+    stages {
+
+        stage('Check'){
+            steps {
+                sh &quot;mvn sonar:sonar&quot;
+            }
+        }
+        stage('Clean') {
+            steps {
+               sh &quot;mvn clean&quot;
+            }
+        }
+        stage('Build') {
+            steps {
+                sh &quot;mvn compile&quot;
+            }
+        }
+        stage('Package') {
+            steps {
+                sh &quot;mvn package -Dmaven.test.skip=true -P&quot;+env.BRANCH_NAME
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh &quot;mvn deploy -Dmaven.test.skip=true -P&quot;+env.BRANCH_NAME
+            }
+        }
+
+        stage('IN') {
+            steps {
+                 sh &quot;~/kubectl_update.sh ${env.WORKSPACE} ${env.JOB_NAME}&quot;
+            }
+        }
+    }
+     post {
+        success {
+            dingTalk(
+                robot: 'jenkins', 
+                type:'MARKDOWN', 
+                title: &quot;构建成功: ${JOB_NAME}&quot;, 
+                text: [&quot;## [${JOB_NAME}](${JOB_URL})&quot;,
+                       &quot;---&quot;,
+                       &quot;- 任务: [${BUILD_DISPLAY_NAME}](${BUILD_URL})&quot;,
+                       &quot;- 状态: &lt;font color=green&gt;成功&lt;/font&gt;&quot;,
+                       &quot;- 持续时间: ${currentBuild.durationString}&quot;,	],	
+            )
+        }
+        failure {
+            dingTalk(
+                robot: 'jenkins', 
+                type:'MARKDOWN', 
+                title: &quot;构建失败: ${JOB_NAME}&quot;, 
+                text: [&quot;## [${JOB_NAME}](${JOB_URL})&quot;,
+                       &quot;---&quot;,
+                       &quot;- 任务: [${BUILD_DISPLAY_NAME}](${BUILD_URL})&quot;,
+                       &quot;- 状态: &lt;font color=red&gt;失败&lt;/font&gt;&quot;,
+                       &quot;- 持续时间: ${currentBuild.durationString}&quot;,	],		
+            ) 
+        }
+    }
+}
+</code></pre>
+<h6 id="前端项目构建pipeline示例">前端项目构建pipeline示例</h6>
+<pre><code>pipeline {
+    agent {
+        label &quot;edge-node&quot;
+    }
+
+    stages {
+
+        stage('Check'){
+            steps {
+                sh &quot;~/sonar-scanner-4.7.0.2747-linux/bin/sonar-scanner -Dsonar.login=admin -Dsonar.password=finsi0t.c0m&quot; 
+            }
+        }
+        stage('Clean') {
+            steps {
+               sh &quot;npm cache clean --force&quot;
+            }
+        }
+        stage('Build') {
+            steps {
+                sh &quot;npm install &amp;&amp; npm run build:pro&quot;
+            }
+        }
+        stage('Install') {
+            steps {
+               sh &quot;~/kubectl_update.sh ${env.WORKSPACE} ${env.JOB_NAME}&quot;
+            } 
+        }
+
+
+    }
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '3'))
+        disableConcurrentBuilds()
+    }
+     post {
+        success {
+            dingTalk(
+                robot: 'jenkins', 
+                type:'MARKDOWN', 
+                title: &quot;构建成功: ${JOB_NAME}&quot;, 
+                text: [&quot;## [${JOB_NAME}](${JOB_URL})&quot;,
+                       &quot;---&quot;,
+                       &quot;- 任务: [${BUILD_DISPLAY_NAME}](${BUILD_URL})&quot;,
+                       &quot;- 状态: &lt;font color=green&gt;成功&lt;/font&gt;&quot;,
+                       &quot;- 持续时间: ${currentBuild.durationString}&quot;,	],	
+            )
+        }
+        failure {
+            dingTalk(
+                robot: 'jenkins', 
+                type:'MARKDOWN', 
+                title: &quot;构建失败: ${JOB_NAME}&quot;, 
+                text: [&quot;## [${JOB_NAME}](${JOB_URL})&quot;,
+                       &quot;---&quot;,
+                       &quot;- 任务: [${BUILD_DISPLAY_NAME}](${BUILD_URL})&quot;,
+                       &quot;- 状态: &lt;font color=red&gt;失败&lt;/font&gt;&quot;,
+                       &quot;- 持续时间: ${currentBuild.durationString}&quot;,	],		
+            ) 
+        }
+    }
+}
+</code></pre>
+<h4 id="创建流水线项目">创建流水线项目</h4>
+<figure data-type="image" tabindex="16"><img src="https://koko-club.github.io/post-images/jenkins/image-20230216152357088.png" alt="image-20230216152357088" loading="lazy"></figure>
+<figure data-type="image" tabindex="17"><img src="https://koko-club.github.io/post-images/jenkins/image-20230216152342895.png" alt="image-20230216152342895" loading="lazy"></figure>
+<figure data-type="image" tabindex="18"><img src="https://koko-club.github.io/post-images/jenkins/image-20230216153134214.png" alt="image-20230216153134214" loading="lazy"></figure>
+<p>这里pipeline有两种方式，一种是直接在jenkins上面写，还有一种是来自仓库的pipeline文件，如上图。默认脚本文件路径是代码项目根目录下的Jenkinsfile。</p>
+<p>下面是我这里gitlab存放的用于测试的jenkinsfile：</p>
+<figure data-type="image" tabindex="19"><img src="https://koko-club.github.io/post-images/jenkins/image-20230216164244800.png" alt="image-20230216164244800" loading="lazy"></figure>
+<p>jenkinsfile(pipeline)和jenkins流水线配置完成之后就可以执行任务了。需要注意的是这里的git拉取仓库只能写在pipeline中，不能像自由风格和maven风格任务一样在任务配置中设置源码管理（git）。这里钩子触发的配置和上面一样，但构建后通知是写在pipeline中的，下面的多分支流水线会写。</p>
+<h5 id="jenkins中的流水线语法生成器">jenkins中的流水线语法生成器</h5>
+<p>如果不熟悉流水线语法可以在配置任务中选择流水线语法，跳转到语法生成器。</p>
+<figure data-type="image" tabindex="20"><img src="https://koko-club.github.io/post-images/jenkins/image-20230217104911232.png" alt="image-20230217104911232" loading="lazy"></figure>
+<figure data-type="image" tabindex="21"><img src="https://koko-club.github.io/post-images/jenkins/image-20230217104951115.png" alt="image-20230217104951115" loading="lazy"></figure>
+<p>例如我这里生成一个git拉取代码的pipeline片段</p>
+<figure data-type="image" tabindex="22"><img src="https://koko-club.github.io/post-images/jenkins/image-20230217105413932.png" alt="image-20230217105413932" loading="lazy"></figure>
+<h4 id="多分支流水线">多分支流水线</h4>
+<p>多分支流水线和流水线不同的地方是多分支流水线可以直接对一个项目多个分支进行任务。在实际中，需要多分支同时进行开发。如果每个分支都创建一个Jenkins项目，比较多余。一般企业生产中也会采用这种方式。</p>
+<figure data-type="image" tabindex="23"><img src="https://koko-club.github.io/post-images/jenkins/63e1c8cfbe940700149b78e776a5f7e0.png" alt="img" loading="lazy"></figure>
+<p>新建任务中选择多分支流水线</p>
+<figure data-type="image" tabindex="24"><img src="https://koko-club.github.io/post-images/jenkins/image-1607389282641.png" alt="file" loading="lazy"></figure>
+<h5 id="分支源配置">分支源配置</h5>
+<p>填入git项目地址以及登录凭据，添加行为clean before/after checkout 用于清理未跟踪的文件</p>
+<figure data-type="image" tabindex="25"><img src="https://koko-club.github.io/post-images/jenkins/image-20230217101740905.png" alt="image-20230217101740905" loading="lazy"></figure>
+<h5 id="build-configuration">build configuration</h5>
+<p>如果是仓库根目录下的jenkinsfile就用默认即可，需要注意的是项目下需要执行jenkins任务的分支都需要有jenkinsfile，每个分支的jenkinsfile是独立的。</p>
+<figure data-type="image" tabindex="26"><img src="https://koko-club.github.io/post-images/jenkins/image-20230217101839957.png" alt="image-20230217101839957" loading="lazy"></figure>
+<h5 id="扫描-多分支流水线-触发器">扫描 多分支流水线 触发器</h5>
+<p>多分支流水线钩子触发器需要下载插件：Multibranch Scan Webhook Trigger。</p>
+<p>安装完以后在扫描 多分支流水线 触发器中选择scan by webhook，输入trigger token。例如这里输入的是test，则gitlab那边设置触发钩子配置的url就应该是</p>
+<p>http(s)😕/JENKINS_URL/multibranch-webhook-trigger/invoke?token=test</p>
+<figure data-type="image" tabindex="27"><img src="https://koko-club.github.io/post-images/jenkins/image-20230217103028959.png" alt="image-20230217103028959" loading="lazy"></figure>
+<p>配置完保存以后会自动开始扫描多分支</p>
+<figure data-type="image" tabindex="28"><img src="https://koko-club.github.io/post-images/jenkins/image-20230217103434365.png" alt="image-20230217103434365" loading="lazy"></figure>
+<p>由于我这里有两个分支mian、master配置了jenkinsfile，则这两个分支可以构建任务</p>
+<figure data-type="image" tabindex="29"><img src="https://koko-club.github.io/post-images/jenkins/image-20230217103520226.png" alt="image-20230217103520226" loading="lazy"></figure>
+<figure data-type="image" tabindex="30"><img src="https://koko-club.github.io/post-images/jenkins/image-20230217103531928.png" alt="image-20230217103531928" loading="lazy"></figure>
+<p>多分支和钩子触发器都配置完毕后，在git仓库那边对对应分支进行push操作，这边就会自动开始构建任务</p>
+<h2 id="安全">安全</h2>
+<p>安全配置位于：系统配置-》安全全局配置</p>
+<h3 id="凭据">凭据</h3>
+<p>这个上面在git拉取时已经用到过了，就不详细讲述了。就是存放密钥或者账号密码的模块，在系统管理-》凭据管理中可以配置（配置任务时也可以直接添加凭据）。</p>
+<h3 id="安全域">安全域</h3>
+<p>安全域主要是定义jenkins用户的数据源，默认是 Jenkins自带的用户数据库。</p>
+<p>配置路径：jenkins设置-》全局安全配置-安全域</p>
+<p>这个一般使用默认项就行，如果有ldap配置需求也可以选择ldap（用户数据使用ldap的数据库）。</p>
+<h3 id="授权策略">授权策略</h3>
+<h4 id="登录用户可以做任何事">登录用户可以做任何事</h4>
+<p>授权策略默认是“登录用户可以做任何事“，表示登录用户皆为最高权限，其中有一个子选项是”匿名用户具有可读权限“，一般会配合子选项进行使用。（登录的是管理员，不登陆就只有只读权限）</p>
+<h4 id="任何用户可以做任何事没有任何限制">任何用户可以做任何事(没有任何限制)</h4>
+<p>简明知意，所有用户（包括匿名用户）都有最高权限。一般不用</p>
+<h4 id="安全矩阵和项目矩阵授权策略">安全矩阵和项目矩阵授权策略</h4>
+<p>根据用户或用户组授予对应权限，可以精确到具体模块权限，但一般不会使用，因为有一个更好的模块Role-Based Strategy作为替代。</p>
+<h4 id="role-based-strategy">Role-Based Strategy</h4>
+<p>角色授权模块，也是最常用的策略，需要先下载模块<a href="https://plugins.jenkins.io/role-strategy">Role-based Authorization Strategy</a>。</p>
+<p>应用Role-Based Strategy以后，选择 系统管理-》安全-》Manage and Assign Roles</p>
+<h5 id="管理角色">管理角色</h5>
+<p>位于系统管理-》安全-》Manage and Assign Roles-》管理角色</p>
+<p>管理角色主要的功能就是创建一个角色，并对于角色授予权限，然后将角色赋予用户或用户组</p>
+<h6 id="global-roles">Global roles</h6>
+<p>全局管理，可以对用户或组授予权限（输入用户 add以后通过选择打勾授予对应模块权限，然后保存生效）。<img src="https://koko-club.github.io/post-images/jenkins/image-20230220153651762.png" alt="image-20230220153651762" loading="lazy"></p>
+<figure data-type="image" tabindex="31"><img src="https://koko-club.github.io/post-images/jenkins/image-20230220153700562.png" alt="image-20230220153700562" loading="lazy"></figure>
+<h6 id="item-roles">Item roles</h6>
+<p>通过项目进行授权，可以使用正则匹配。例如我这里是授予有英文字母a-z的项目权限</p>
+<figure data-type="image" tabindex="32"><img src="post-images/jenkins/image-20230220160917798.png" alt="image-20230220160917798" loading="lazy"></figure>
+<h6 id="node-roles">Node roles</h6>
+<p>Node roles在Jenkins集群环境下使用，配置不同结点的Jenkins权限。（目前没使用过，如后期有使用会补上这一块内容）</p>
+<h5 id="分配角色">分配角色</h5>
+<p>分配角色也是三大块：Global roles、Item roles、Node roles。分配主要就是添加用户、用户组然后勾选上面创建好的角色，此时用户、用户组则拥有了该角色的权限。</p>
+<p>备注：jenkins默认没有组选项，只能通过active directory或者ldap对接jenkins用户数据来使用用户组管理。</p>
+<h2 id=""></h2>
+<h2 id="其他问题">其他问题</h2>
+<h3 id="k8s环境中可能出现的问题">k8s环境中可能出现的问题</h3>
+<h4 id="时区">时区</h4>
+<p>时区默认肯定不是国内的，最简便的解决方法是通过挂载主机（k8s hostpath方法）的时区文件(/etc/localtime)解决。或者dockerfile用jenkins作为基础镜像，再加上时区修改的配置也可以。</p>
+<h4 id="中文乱码">中文乱码</h4>
+<p>这个是不是k8s都有可能出现这个问题，主要是主机的字符集格式需要修改为中文utf-8。如果是k8s的话需要dockerfile重新打一下镜像，改成中文utf-8，或者每次启动时安装utf-8中文并配置（一般jenkins镜像没有中文utf-8）</p>
+
+<span id="footnote"></span>
+<div id = "warn"></div>
+</div>
+<div class="toc-container"><ul class="markdownIt-TOC">
+<li><a href="#jenkins">jenkins</a>
+<ul>
+<li><a href="#%E4%BB%8B%E7%BB%8D">介绍</a>
+<ul>
+<li><a href="#%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90ci">持续集成CI</a></li>
+<li><a href="#%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98cd">持续交付CD</a></li>
+</ul>
+</li>
+<li><a href="#%E9%83%A8%E7%BD%B2">部署</a>
+<ul>
+<li><a href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%8C%85%E9%83%A8%E7%BD%B2">二进制包部署</a></li>
+<li><a href="#k8sdocker%E9%83%A8%E7%BD%B2">k8s(docker)部署</a>
+<ul>
+<li><a href="#docker%E9%83%A8%E7%BD%B2">docker部署</a></li>
+<li><a href="#k8s%E9%83%A8%E7%BD%B2">k8s部署</a>
+<ul>
+<li><a href="#helm%E6%96%B9%E5%BC%8F">helm方式</a></li>
+<li><a href="#yaml%E9%83%A8%E7%BD%B2">yaml部署</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E4%BB%BB%E5%8A%A1">任务</a>
+<ul>
+<li><a href="#%E9%9D%9E%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%87%AA%E7%94%B1%E9%A3%8E%E6%A0%BC">非流水线（自由风格）</a>
+<ul>
+<li><a href="#%E6%8B%89%E5%8F%96%E4%BB%A3%E7%A0%81">拉取代码</a></li>
+<li><a href="#%E6%9E%84%E5%BB%BA%E8%A7%A6%E5%8F%91%E5%99%A8">构建触发器</a>
+<ul>
+<li><a href="#webhook%E8%A7%A6%E5%8F%91jenkins%E4%BB%BB%E5%8A%A1%E9%85%8D%E7%BD%AE">webhook触发jenkins任务配置</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9E%84%E5%BB%BA%E7%8E%AF%E5%A2%83">构建环境</a></li>
+<li><a href="#%E6%9E%84%E5%BB%BA">构建</a></li>
+<li><a href="#%E6%9E%84%E5%BB%BA%E5%90%8E%E6%93%8D%E4%BD%9C">构建后操作</a>
+<ul>
+<li><a href="#%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E9%80%9A%E7%9F%A5">企业微信通知</a></li>
+<li><a href="#%E9%92%89%E9%92%89%E9%80%9A%E7%9F%A5">钉钉通知</a></li>
+</ul>
+</li>
+<li><a href="#maven%E4%BB%BB%E5%8A%A1">maven任务</a></li>
+</ul>
+</li>
+<li><a href="#%E6%B5%81%E6%B0%B4%E7%BA%BFpipeline">流水线（pipeline）</a>
+<ul>
+<li><a href="#pipeline%E8%AF%AD%E6%B3%95">pipeline语法</a>
+<ul>
+<li><a href="#pipeline%E7%A4%BA%E4%BE%8B">pipeline示例</a>
+<ul>
+<li><a href="#%E7%A4%BA%E4%BE%8B1">示例1</a></li>
+<li><a href="#java%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BApipeline%E7%A4%BA%E4%BE%8B">java项目构建pipeline示例</a></li>
+<li><a href="#%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BApipeline%E7%A4%BA%E4%BE%8B">前端项目构建pipeline示例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E6%B5%81%E6%B0%B4%E7%BA%BF%E9%A1%B9%E7%9B%AE">创建流水线项目</a>
+<ul>
+<li><a href="#jenkins%E4%B8%AD%E7%9A%84%E6%B5%81%E6%B0%B4%E7%BA%BF%E8%AF%AD%E6%B3%95%E7%94%9F%E6%88%90%E5%99%A8">jenkins中的流水线语法生成器</a></li>
+</ul>
+</li>
+<li><a href="#%E5%A4%9A%E5%88%86%E6%94%AF%E6%B5%81%E6%B0%B4%E7%BA%BF">多分支流水线</a>
+<ul>
+<li><a href="#%E5%88%86%E6%94%AF%E6%BA%90%E9%85%8D%E7%BD%AE">分支源配置</a></li>
+<li><a href="#build-configuration">build configuration</a></li>
+<li><a href="#%E6%89%AB%E6%8F%8F-%E5%A4%9A%E5%88%86%E6%94%AF%E6%B5%81%E6%B0%B4%E7%BA%BF-%E8%A7%A6%E5%8F%91%E5%99%A8">扫描 多分支流水线 触发器</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%AE%89%E5%85%A8">安全</a>
+<ul>
+<li><a href="#%E5%87%AD%E6%8D%AE">凭据</a></li>
+<li><a href="#%E5%AE%89%E5%85%A8%E5%9F%9F">安全域</a></li>
+<li><a href="#%E6%8E%88%E6%9D%83%E7%AD%96%E7%95%A5">授权策略</a>
+<ul>
+<li><a href="#%E7%99%BB%E5%BD%95%E7%94%A8%E6%88%B7%E5%8F%AF%E4%BB%A5%E5%81%9A%E4%BB%BB%E4%BD%95%E4%BA%8B">登录用户可以做任何事</a></li>
+<li><a href="#%E4%BB%BB%E4%BD%95%E7%94%A8%E6%88%B7%E5%8F%AF%E4%BB%A5%E5%81%9A%E4%BB%BB%E4%BD%95%E4%BA%8B%E6%B2%A1%E6%9C%89%E4%BB%BB%E4%BD%95%E9%99%90%E5%88%B6">任何用户可以做任何事(没有任何限制)</a></li>
+<li><a href="#%E5%AE%89%E5%85%A8%E7%9F%A9%E9%98%B5%E5%92%8C%E9%A1%B9%E7%9B%AE%E7%9F%A9%E9%98%B5%E6%8E%88%E6%9D%83%E7%AD%96%E7%95%A5">安全矩阵和项目矩阵授权策略</a></li>
+<li><a href="#role-based-strategy">Role-Based Strategy</a>
+<ul>
+<li><a href="#%E7%AE%A1%E7%90%86%E8%A7%92%E8%89%B2">管理角色</a>
+<ul>
+<li><a href="#global-roles">Global roles</a></li>
+<li><a href="#item-roles">Item roles</a></li>
+<li><a href="#node-roles">Node roles</a></li>
+</ul>
+</li>
+<li><a href="#%E5%88%86%E9%85%8D%E8%A7%92%E8%89%B2">分配角色</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li></li>
+<li><a href="#%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98">其他问题</a>
+<ul>
+<li><a href="#k8s%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%8F%AF%E8%83%BD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98">k8s环境中可能出现的问题</a>
+<ul>
+<li><a href="#%E6%97%B6%E5%8C%BA">时区</a></li>
+<li><a href="#%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81">中文乱码</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="fullPage"><canvas id="canvas"></canvas></div>
+</article>
+<div id="eof"><span>EOF</span></div><div class="round-shape-one"></div>
+<section>
+<div class="doc_comments">
+
+</div></section>
+</div></div></div><script>
+"use strict";!function(){for(var n=document.getElementsByTagName("pre"),e=n.length,s=0;s<e;s++){n[s].innerHTML='<span class="line-number"></span>'+n[s].innerHTML+'<span class="cl"></span>';for(var a=n[s].innerHTML.split(/\n/).length,r=0;r<a-1;r++){n[s].getElementsByTagName("span")[0].innerHTML+="<span>"+(r+1)+"</span>"}}}();
+let mainNavLinks=document.querySelectorAll(".markdownIt-TOC a");window.addEventListener("scroll",event=>{let fromTop=window.scrollY;mainNavLinks.forEach((link,index)=>{let section=document.getElementById(decodeURI(link.hash).substring(1));let nextSection=null
+if(mainNavLinks[index+1]){nextSection=document.getElementById(decodeURI(mainNavLinks[index+1].hash).substring(1));}
+if(section.offsetTop<=fromTop){if(nextSection){if(nextSection.offsetTop>fromTop){link.classList.add("currentToc");}else{link.classList.remove("currentToc");}}else{link.classList.add("currentToc");}}else{link.classList.remove("currentToc");}});});
+var h=document.documentElement,b=document.body,st="scrollTop",sh="scrollHeight",progress=document.querySelector(".progress"),scroll;document.addEventListener("scroll",function(){scroll=(h[st]||b[st])/((h[sh]||b[sh])-h.clientHeight)*100;progress.style.setProperty("--scroll",scroll+"%")});
+var wxScale=new WxScale({fullPage:document.querySelector("#fullPage"),canvas:document.querySelector("#canvas")});var imgBox=document.querySelectorAll("#md_block img");for(var i=0;i<imgBox.length;i++){imgBox[i].onclick=function(e){wxScale.start(this)}};
+</script>
+<a id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647; display: block;"></a><div class="footer animated fadeInDown"><div class="site_footer"><div class="mysocials"><div class="my_socials"></div></div><div class="copyright"id="copyright">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>Copyright © 2018-2020 <a href="https://koko-club.github.io" style="margin:0;">Imcry</a>.</div>
+<span style="display: inline;margin-right:15px;">👁<strong><span id="busuanzi_value_site_uv"></span></strong></span><span id="busuanzi_container_page_pv" style="display: inline;"><span>📚<strong>5</strong> posts</span></div></div>
+<script>
+console.log("\n %c \u26a1Theme: Bitcron-pro Author's Blog:https://blog.blinkstar.cn  Writen By Serence  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;", );
+</script>
+<script src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.min.js" type="module" defer></script>
+<script type="text/javascript" async src="https://koko-club.github.io/media/js/prism.js"></script>
+</body>
+</html>
